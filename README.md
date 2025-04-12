@@ -33,6 +33,6 @@ A simple task management application built with **Laravel (REST API)** and **Rea
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/mael/taskmanager-api.git
-cd taskmanager-api
+git clone https://github.com/lemael/taskmanager_laravel.git
+cd taskmanager_laravel
 ```
