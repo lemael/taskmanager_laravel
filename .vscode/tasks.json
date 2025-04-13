@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Serve Laravel",
+      "type": "shell",
+      "command": "php",
+      "args": ["artisan", "serve"],
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Launch Laravel server"
+    }
+  ]
+}
