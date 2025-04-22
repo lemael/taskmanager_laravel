@@ -1,7 +1,5 @@
-import normalizePath from "normalize-path";
-
 import { NOT_FOUND_ROUTE } from "../routes";
-
+const normalizePath = require("normalize-path");
 const normalize = (value: string): string => {
   try {
     return decodeURIComponent(normalizePath(value)).toLowerCase();

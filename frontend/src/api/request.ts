@@ -22,5 +22,11 @@ export const request = (
 ): Promise<Response> => {
   // merge mutates the first passed object which may lead to errors e.g. by setting body on a GET request
   const requestOptions = {};
-  return fetch(url, deepmerge(requestOptions, options, defaultRequestOptions));
+  const cleanOptions = {
+    ...deepmerge(requestOptions, options, defaultRequestOptions),
+  };
+  delete cleanOptions.window;
+  const finalOptions: RequestInit = cleanOptions;
+
+  return fetch(url, finalOptions);
 };
