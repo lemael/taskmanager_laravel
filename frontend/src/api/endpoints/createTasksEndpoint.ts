@@ -17,7 +17,10 @@ type ParamsType = {
 
 const createTaskEndpoint = (baseUrl: string): Endpoint<ParamsType, TaskModel> =>
   new EndpointBuilder<ParamsType, TaskModel>(TASKS_ENDPOINT_NAME)
-    .withParamsToUrlMapper(() => `${baseUrl}/api/tasks`)
+    .withParamsToUrlMapper(() => {
+      const cleanedBaseUrl = baseUrl.replace(/\/$/, "");
+      return `${cleanedBaseUrl}/tasks`;
+    })
     .withParamsToBodyMapper((params: ParamsType) => {
       const formData = new FormData();
       formData.append("title", params.title);

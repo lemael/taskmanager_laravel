@@ -1,0 +1,13 @@
+export const JPAL_TRACKING_CODE_QUERY_PARAM = "jpal_tracking_code";
+export const OPEN_PAGE_SIGNAL_NAME = "open_page";
+export const CLOSE_PAGE_SIGNAL_NAME = "close_page";
+export const OPEN_DEEP_LINK_SIGNAL_NAME = "open_deep_link";
+export const OPEN_INTERNAL_LINK_SIGNAL_NAME = "open_internal_link";
+export const OPEN_EXTERNAL_LINK_SIGNAL_NAME = "open_external_link";
+export const OPEN_OS_LINK_SIGNAL_NAME = "open_os_link";
+export const OPEN_MEDIA_SIGNAL_NAME = "open_media";
+export const SEARCH_FINISHED_SIGNAL_NAME = "search_finished";
+export const RESUME_SIGNAL_NAME = "resume";
+export const SUSPEND_SIGNAL_NAME = "suspend";
+export const SHARE_SIGNAL_NAME = "share";
+export const SEND_FEEDBACK_SIGNAL_NAME = "send_feedback";

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "outDir": "./dist", // Où stocker les .js compilés
+    "rootDir": "./src", // Où se trouvent les fichiers sources
     "target": "ES6",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
@@ -14,10 +16,10 @@
     "paths": {
       "@/*": ["*"],
       "@api/*": ["../api/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
-
   "include": ["src/**/*.ts", "src/**/*.tsx"],
 
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
