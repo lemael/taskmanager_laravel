@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
+use App\constants\RouteNames;
 class EmailVerificationNotificationController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class EmailVerificationNotificationController extends Controller
     public function store(Request $request): RedirectResponse
     {
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('dashboard', absolute: false));
+            return redirect()->intended(route(RouteNames::DASHBOARD, absolute: false));
         }
 
         $request->user()->sendEmailVerificationNotification();
