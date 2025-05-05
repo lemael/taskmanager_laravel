@@ -1,14 +1,12 @@
 # 📝 Task Manager App
 
-A simple task management application built with **Laravel (REST API)** and **React (frontend SPA)**.
+A simple task management application built with **Laravel (REST API)** and **React (frontend)**.
 
 ---
 
-## 🚀 Tech Stack
+## Preview
 
-- ⚙️ **Backend** : Laravel 10 (API REST)
-- 💻 **Frontend** : React 18 (Vite)
-- 🗃️ **Database** : SQLite (facile à lancer en local)
+![Preview of the TasksPage](./frontend/public/TaskPage.png)
 
 ---
 
@@ -19,6 +17,7 @@ A simple task management application built with **Laravel (REST API)** and **Rea
 - Create / Read tasks
 - JSON API structure
 - Feature tested with PHPUnit
+- Database (SQLite)
 
 ### 🖥️ Frontend (React)
 
