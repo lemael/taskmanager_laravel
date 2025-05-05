@@ -3,9 +3,9 @@ import { ReactElement, useEffect, useState } from "react";
 import createTaskEndpoint from "../api/endpoints/createTasksEndpoint";
 import fetchFromEndpoint from "../api/fetchFromEndpoint";
 import TaskModel from "../api/models/TaskModel";
+import BaseBackground from "../components/base";
 import ContentLayout from "../components/ContentLayout";
-import List from "../components/List";
-import TaskItem from "../components/TaskItem";
+import TaskList from "../components/TaskList";
 import cmsApiBaseUrl from "../constants/cmsApiBaseUrl";
 
 type CityRouteProps = {
@@ -13,7 +13,7 @@ type CityRouteProps = {
 };
 
 const TasksPage = ({ pathname }: CityRouteProps): ReactElement => {
-  const [tasks, setTasks] = useState<TaskModel[] | null>(null);
+  const [tasks, setTasks] = useState<TaskModel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -44,21 +44,26 @@ const TasksPage = ({ pathname }: CityRouteProps): ReactElement => {
     fetchTasks();
   }, []);
 
-  const renderTaskItem = (task: TaskModel) => (
-    <TaskItem key={task.path} task={task} />
-  );
-
+  if (loading) return <p>Loading tasks...</p>;
   return (
-    <ContentLayout isLoading={loading}>
-      <h1>Aufgabenübersicht</h1>
-      {error && <p>Fehler beim Laden: {error.message}</p>}
-      <List
-        noItemsMessage="Keine Aufgaben verfügbar."
-        items={tasks || []}
-        renderItem={renderTaskItem}
-      />
-    </ContentLayout>
+    <>
+      <BaseBackground />
+      <div style={styles.container}>
+        <ContentLayout isLoading={loading}>
+          {error && <p>Fehler beim Laden: {error.message}</p>}
+          <TaskList tasks={tasks} />
+        </ContentLayout>
+      </div>
+    </>
   );
 };
 
+//  Styles en JS (inline)
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    marginTop: "-150px",
+    position: "relative",
+    zIndex: 1,
+  },
+};
 export default TasksPage;
