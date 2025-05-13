@@ -1,4 +1,4 @@
-import { TasksRouteType } from "../routes";
+import { TasksRouteType } from "../pages";
 
 export const JPAL_TRACKING_CODE_QUERY_PARAM = "jpal_tracking_code";
 
