@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import TaskModel from "../api/models/TaskModel";
+import TaskModel from "../../api/models/TaskModel";
 
 type Props = {
   task: TaskModel;
@@ -57,7 +57,6 @@ const ClickableItem = styled.div`
   padding: 10px;
   border-radius: 6px;
   transition: background-color 0.2s, transform 0.2s;
-
   &:hover {
     background-color: #f0f0f0;
     transform: scale(1.02);

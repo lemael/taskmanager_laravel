@@ -1,5 +1,5 @@
-import TaskModel from "../api/models/TaskModel";
-import List from "./List";
+import TaskModel from "../../api/models/TaskModel";
+import List from "../List";
 import TaskItem from "./TaskItem";
 
 type Props = {
