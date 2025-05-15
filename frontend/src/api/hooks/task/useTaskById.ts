@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import cmsApiBaseUrl from "../constants/cmsApiBaseUrl";
-import TaskModel from "./models/TaskModel";
+import cmsApiBaseUrl from "../../../constants/cmsApiBaseUrl";
+import TaskModel from "../../models/TaskModel";
 
 export default function useTaskById(taskId: string) {
   const [task, setTask] = useState<TaskModel | null>(null);

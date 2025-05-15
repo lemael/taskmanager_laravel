@@ -1,49 +1,14 @@
-import { DateTime } from "luxon";
-import { ReactElement, useEffect, useState } from "react";
-import createTaskEndpoint from "../api/endpoints/createTasksEndpoint";
-import fetchFromEndpoint from "../api/fetchFromEndpoint";
-import TaskModel from "../api/models/TaskModel";
+import { ReactElement } from "react";
+import useTasks from "../api/hooks/task/useTasks";
 import BaseBackground from "../components/base";
 import ContentLayout from "../components/ContentLayout";
-import TaskList from "../components/TaskList";
-import cmsApiBaseUrl from "../constants/cmsApiBaseUrl";
-
+import TaskList from "../components/task/TaskList";
 type CityRouteProps = {
   pathname: string;
 };
 
 const TasksPage = ({ pathname }: CityRouteProps): ReactElement => {
-  const [tasks, setTasks] = useState<TaskModel[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const endpoint = createTaskEndpoint(cmsApiBaseUrl);
-        const data = await fetchFromEndpoint(
-          endpoint,
-          {
-            path: "/tasks",
-            title: "",
-            description: "",
-            is_completed: false,
-            created_at: DateTime.now(),
-            lastUpdate: DateTime.now(),
-          },
-          "GET"
-        );
-        setTasks(data as TaskModel[]);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTasks();
-  }, []);
-
+  const { tasks, loading, error } = useTasks();
   if (loading) return <p>Loading tasks...</p>;
   return (
     <>
